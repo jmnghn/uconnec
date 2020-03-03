@@ -8,9 +8,9 @@ ROOT_PATH = "/Users/myeonghyeonjeong/Desktop/KAIST_결과데이�
 prev_data = (0, {}, {})
 
 SQL = "SELECT TPD.src_idx, TPD.result_json, CFU.json_value, CS.uuid_str FROM TB_PRJ_DATA TPD INNER JOIN CW_SOURCE CS ON TPD.src_idx = CS.source_id INNER JOIN CW_FILE_UNPACKED CFU ON CS.file_id = CFU.file_id WHERE TPD.prj_idx in (2996) AND prog_state_cd = 'WORK_END' AND problem_yn=0 ORDER BY src_idx ASC"
-# sql_result = getDatabaseData(SQL, "dev", "cwdbuser", "ckadlselql#3")
-# sql_result = getDatabaseData(SQL, "stg", "cwdbuser", "ckadlselql#3")
-sql_result = getDatabaseData(SQL, "prd", "mhjeong", "cworks@34")
+# sql_result = getDatabaseData(SQL, "", "", "")
+# sql_result = getDatabaseData(SQL, "", "", "")
+sql_result = getDatabaseData(SQL, "", "", "")
 
 
 # TODO: key 이름이 cw_comment 는 제외

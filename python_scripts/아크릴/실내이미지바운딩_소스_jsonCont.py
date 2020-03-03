@@ -57,7 +57,7 @@ for task_id in task_id_list:
 
     sql_result_json = "select work_user, result_json from TB_PRJ_DATA where prj_idx=" + str(task_id) + " and prog_state_cd='ALL_FINISHED' and '2019-07-25' < check_edate and check_edate < '2019-09-03'"
     # print("### sql_result_json ### \n", sql_result_json)
-    prj_data_list = getDatabaseData(sql_result_json, "prd", "mhjeong", "cworks@34")
+    prj_data_list = getDatabaseData(sql_result_json, "", "", "")
 
     for prj_data in prj_data_list:
 
@@ -68,7 +68,7 @@ for task_id in task_id_list:
             task_id) + " and reg_user=" + reg_user
         # print("### sql_get_file_name_list ### \n", sql_get_file_name_list)
         # Dict 로 변환
-        all_file_name_dict = dict((file_id, file_name) for file_id, file_name in getDatabaseData(sql_get_file_name_list, "prd", "mhjeong", "cworks@34"))
+        all_file_name_dict = dict((file_id, file_name) for file_id, file_name in getDatabaseData(sql_get_file_name_list, "", "", ""))
 
         # 복사 할 경로
         copy_from_path = origin_path + all_file_name_dict[int(json.loads(prj_data[1])['fileId'])]

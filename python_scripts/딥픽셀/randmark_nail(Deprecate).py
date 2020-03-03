@@ -18,7 +18,7 @@ if os.path.isdir(source_path) == False:
 
 sql = "select CP.project_id, CP.project_name, TPM.prj_idx, TPM.prj_name, TD.prog_state_cd, TD.result_json, bin2uuid(TM1.uuid) AS work_user_uuid, bin2uuid(TM2.uuid) AS check_user_uuid, TD.work_edate, TD.check_edate, TD.mod_date, CFU.store_file_name, CFU.file_ext from  TB_PRJ_DATA  AS TD inner join TB_PRJ_MST AS TPM ON TD.prj_idx = TPM.prj_idx inner join CW_PROJECT AS CP ON CP.project_id = TPM.project_id left join TB_MEMBER  AS TM1 ON TD.work_user = TM1.member_id left join TB_MEMBER  AS TM2 ON TD.check_user = TM1.member_id inner join CW_SOURCE AS CS ON CS.source_id = TD.src_idx inner join CW_FILE_UNPACKED AS CFU ON CS.file_id = CFU.file_id where CP.project_id = 1702 AND TPM.prj_idx = 2386 and TD.prog_state_cd = 'ALL_FINISHED' AND problem_yn = 0 order by TD.check_edate desc"
 
-prj_data_list = result_json = getDatabaseData(sql, "prd", "mhjeong", "cworks@34")
+prj_data_list = result_json = getDatabaseData(sql, "", "", "")
 idx = 0
 
 print("projectId", "projectName", "taskId", "taskName", "progStateCd", "workUserUuid", "checkUserUuid", "workEdate",

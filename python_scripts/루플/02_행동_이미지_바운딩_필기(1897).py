@@ -40,7 +40,7 @@ for dir in os.listdir(SOURCE_PATH):
 
 # QUERY 1
 QUERY_1 = "SELECT data_idx, work_user, result_json FROM TB_PRJ_DATA WHERE prj_idx=" + str(TASK_ID) + " AND prog_state_cd='ALL_FINISHED'"
-QUERY_1_RESULT = getDatabaseData(QUERY_1, "prd", "mhjeong", "cworks@34")
+QUERY_1_RESULT = getDatabaseData(QUERY_1, "", "", "")
 
 for q_1_data in QUERY_1_RESULT:
     # json 파일 만들 때 사용할 format dict
@@ -56,7 +56,7 @@ for q_1_data in QUERY_1_RESULT:
     result_json = q_1_data[2]
 
     QUERY_2 = "SELECT CFU.store_file_name, CS.uuid_str FROM TB_PRJ_DATA AS TPD LEFT JOIN TB_MEMBER AS TM ON TM.member_id = TPD.work_user LEFT JOIN TB_TMPL_IMG_LABEL_DATA AS TLD ON TPD.data_idx  = TLD.data_idx LEFT JOIN CW_SOURCE AS CS ON CS.source_id = TLD.src_idx LEFT JOIN CW_FILE_UNPACKED AS CFU ON CFU.file_id = CS.file_id WHERE TPD.prj_idx IN (" + str(TASK_ID) + ") AND TPD.data_idx=" + str(data_idx)
-    file_name = getDatabaseData(QUERY_2, "prd", "mhjeong", "cworks@34")
+    file_name = getDatabaseData(QUERY_2, "", "", "")
 
     _uuid = file_name[0][1]
     # 가져올 이미지 파일 경로 (원본)

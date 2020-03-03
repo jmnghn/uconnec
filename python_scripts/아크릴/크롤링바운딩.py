@@ -61,8 +61,8 @@ for task_id in task_id_list:
     QUERY_1 = "select data_idx, work_user, result_json from TB_PRJ_DATA where prj_idx=" + str(
         task_id) + " and prog_state_cd='WORK_END' and problem_yn = 0"
     # QUERY_1 = "SELECT data_idx, work_user, result_json FROM TB_PRJ_DATA WHERE prj_idx=" + str(task_id) + " AND prog_state_cd='ALL_FINISHED' AND problem_yn = 0"
-    # QUERY_1_RESULT = getDatabaseData(QUERY_1, "prd", "mhjeong", "cworks@34")
-    QUERY_1_RESULT = getDatabaseData(QUERY_1, "dev", "cwdbuser", "ckadlselql#3")
+    # QUERY_1_RESULT = getDatabaseData(QUERY_1, "", "", "")
+    QUERY_1_RESULT = getDatabaseData(QUERY_1, "", "", "")
 
     for data in QUERY_1_RESULT:
         # json 파일 만들 때 사용할 format dict
@@ -83,8 +83,8 @@ for task_id in task_id_list:
         # QUERY_2
         QUERY_2 = "SELECT CFU.store_file_name, CS.uuid_str FROM TB_PRJ_DATA AS TPD LEFT JOIN TB_MEMBER AS TM ON TM.member_id = TPD.work_user LEFT JOIN TB_TMPL_IMG_LABEL_DATA AS TLD ON TPD.data_idx  = TLD.data_idx LEFT JOIN CW_SOURCE AS CS ON CS.source_id = TLD.src_idx LEFT JOIN CW_FILE_UNPACKED AS CFU ON CFU.file_id = CS.file_id WHERE TPD.prj_idx IN (" + str(
             task_id) + ") AND TPD.data_idx=" + str(data_idx)
-        # file_name = getDatabaseData(QUERY_2, "prd", "mhjeong", "cworks@34")
-        QUERY_2_RESULT = getDatabaseData(QUERY_2, "dev", "cwdbuser", "ckadlselql#3")
+        # file_name = getDatabaseData(QUERY_2, "", "", "")
+        QUERY_2_RESULT = getDatabaseData(QUERY_2, "", "", "")
 
         store_file_name = str(QUERY_2_RESULT[0][0])
         uuid = str(QUERY_2_RESULT[0][1])

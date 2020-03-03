@@ -71,7 +71,7 @@ except FileExistsError as e:
 for task_id in TASK_IDS:
     QUERY = "SELECT TPD.result_json, CFU.store_file_name, CFU.store_file_path FROM  TB_PRJ_DATA AS TPD INNER JOIN TB_MEMBER AS TM ON TM.member_id = TPD.work_user INNER JOIN TB_TMPL_IMG_LABEL_DATA AS LD ON TPD.data_idx  = LD.data_idx INNER JOIN CW_SOURCE AS CS ON CS.source_id = LD.src_idx INNER JOIN CW_FILE_UNPACKED AS CFU ON CFU.file_id = CS.file_id WHERE TPD.prj_idx IN (" + str(
         task_id) + ") AND (TPD.prog_state_cd='ALL_FINISHED' OR TPD.prog_state_cd='CHECK_END') ORDER BY store_file_name"
-    RESULT = getDatabaseData(QUERY, "prd", "mhjeong", "cworks@34")
+    RESULT = getDatabaseData(QUERY, "", "", "")
 
     try:
         FOLDER_NAME = RESULT[0][2].split('/')[6]

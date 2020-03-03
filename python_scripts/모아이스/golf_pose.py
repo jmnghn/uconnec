@@ -60,7 +60,7 @@ for task_id in task_id_list:
                  "where D.prj_idx in (" + str(
         task_id) + ") and (D.prog_state_cd='ALL_FINISHED' OR D.prog_state_cd='CHECK_END') ORDER BY store_file_name"
 
-    data_list = getDatabaseData(sql_result, "prd", "mhjeong", "cworks@34")
+    data_list = getDatabaseData(sql_result, "", "", "")
 
     try:
         # print("source_name: ", data_list[0][2].split('/')[6])

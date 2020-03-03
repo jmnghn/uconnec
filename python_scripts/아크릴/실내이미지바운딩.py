@@ -98,7 +98,7 @@ for task_id in task_id_list:
     # QUERY 1
     QUERY_1 = "SELECT data_idx, work_user, result_json FROM TB_PRJ_DATA WHERE prj_idx=" + str(switchTaskId(
         task_id)) + " AND prog_state_cd='ALL_FINISHED'"
-    QUERY_1_RESULT = getDatabaseData(QUERY_1, "prd", "mhjeong", "cworks@34")
+    QUERY_1_RESULT = getDatabaseData(QUERY_1, "", "", "")
 
     for q_1_data in QUERY_1_RESULT:
         # json 파일 만들 때 사용할 format dict
@@ -119,11 +119,11 @@ for task_id in task_id_list:
         # QUERY 2
         # QUERY_2 = "select U.store_file_name, uuid_str from  TB_PRJ_DATA     D left join TB_MEMBER M on M.member_id = D.work_user left join TB_TMPL_IMG_LABEL_DATA L on D.data_idx  = L.data_idx left join CW_SOURCE S on S.source_id = L.src_idx left join CW_FILE_UNPACKED U  on U.file_id = S.file_id where D.prj_idx in (" + str(
         #     switchTaskId(task_id)) + ") AND D.data_idx=" + str(data_idx)
-        # file_name = getDatabaseData(QUERY_2, "prd", "mhjeong", "cworks@34")
+        # file_name = getDatabaseData(QUERY_2, "", "", "")
 
         QUERY_2 = "SELECT CFU.store_file_name, CS.uuid_str FROM TB_PRJ_DATA AS TPD LEFT JOIN TB_MEMBER AS TM ON TM.member_id = TPD.work_user LEFT JOIN TB_TMPL_IMG_LABEL_DATA AS TLD ON TPD.data_idx  = TLD.data_idx LEFT JOIN CW_SOURCE AS CS ON CS.source_id = TLD.src_idx LEFT JOIN CW_FILE_UNPACKED AS CFU ON CFU.file_id = CS.file_id WHERE TPD.prj_idx IN (" + str(
             switchTaskId(task_id)) + ") AND TPD.data_idx=" + str(data_idx)
-        file_name = getDatabaseData(QUERY_2, "prd", "mhjeong", "cworks@34")
+        file_name = getDatabaseData(QUERY_2, "", "", "")
 
         _uuid = file_name[0][1]
         # 가져올 이미지 파일 경로 (원본)

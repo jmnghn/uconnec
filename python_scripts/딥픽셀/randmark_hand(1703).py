@@ -31,7 +31,7 @@ except FileExistsError:
 task_ids = "2388,2389,2390,2391,2392,2393,2394,2395,2396"
 
 QUERY = "SELECT CP.project_id, CP.project_name, TPM.prj_idx, TPM.prj_name, TD.prog_state_cd, TD.result_json, bin2uuid(TM1.uuid) AS work_user_uuid, bin2uuid(TM2.uuid) AS check_user_uuid, TD.work_edate, TD.check_edate, TD.mod_date, CFU.store_file_name, CFU.file_ext, CS.uuid_str FROM  TB_PRJ_DATA  AS TD INNER JOIN TB_PRJ_MST AS TPM ON TD.prj_idx = TPM.prj_idx INNER JOIN CW_PROJECT AS CP ON CP.project_id = TPM.project_id LEFT JOIN TB_MEMBER  AS TM1 ON TD.work_user = TM1.member_id LEFT JOIN TB_MEMBER  AS TM2 ON TD.check_user = TM1.member_id INNER JOIN CW_SOURCE AS CS ON CS.source_id = TD.src_idx INNER JOIN CW_FILE_UNPACKED AS CFU ON CS.file_id = CFU.file_id WHERE TPM.prj_idx IN (" + task_ids + ") AND TD.prog_state_cd = 'ALL_FINISHED' ORDER BY TD.check_edate DESC"
-RESULT = getDatabaseData(QUERY, "prd", "mhjeong", "cworks@34")
+RESULT = getDatabaseData(QUERY, "", "", "")
 
 print("projectId", "projectName", "taskId", "taskName", "progStateCd", "workUserUuid", "checkUserUuid", "workEdate",
       "checkEdate", "modDate", "fileName", "fileExt", "jsonData ", sep="\t")

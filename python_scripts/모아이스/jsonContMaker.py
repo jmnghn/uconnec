@@ -11,8 +11,8 @@ sql_result = "SELECT CS.uuid_str, CFU.store_file_name FROM CW_FILE_UNPACKED AS C
 
 print(sql_result)
 
-# result = getDatabaseData(sql_result, "dev", "cwdbuser", "ckadlselql#3")
-result = getDatabaseData(sql_result, "prd", "mhjeong", "cworks@34")
+# result = getDatabaseData(sql_result, "", "", "")
+result = getDatabaseData(sql_result, "", "", "")
 
 with open(json_cont_path, encoding='utf-8-sig') as json_file:
     json_data = json.load(json_file)

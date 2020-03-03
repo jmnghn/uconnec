@@ -21,7 +21,7 @@ EXT_FOLDER = year + month + day
 EXT_PATH = "/Users/myeonghyeonjeong/Desktop/DATA_EXT/네이버/음성듣고_문장_수정하기(1832)/" # TODO: 폴더 미리 만들어야함!
 
 SQL = "SELECT result_json FROM TB_PRJ_DATA WHERE prj_idx=3017 AND prog_state_cd='ALL_FINISHED' AND problem_yn=0"
-sql_result = getDatabaseData(SQL, "prd", "mhjeong", "cworks@34")
+sql_result = getDatabaseData(SQL, "", "", "")
 
 txt = open(EXT_PATH + "labeled_data_1832_" + EXT_FOLDER + '.txt', 'w', encoding='UTF-8-sig')
 print("audio_dictation_lineSplit.py PATH: ", EXT_PATH + "labeled_data_1832_" + EXT_FOLDER + '.txt')

@@ -37,7 +37,7 @@ item_list = {"스마트폰": 0, "태블릿": 0, "스마트워치": 0, "무선이
 task_id_list = "1933, 1942, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953"
 
 sql_result_json = "SELECT result_json FROM TB_PRJ_DATA WHERE prj_idx in (" + task_id_list + ") AND prog_state_cd='ALL_FINISHED'"
-result_json = getDatabaseData(sql_result_json, "prd", "mhjeong", "cworks@34")
+result_json = getDatabaseData(sql_result_json, "", "", "")
 
 for result in result_json:
     # str > dict
@@ -155,7 +155,7 @@ EXT_PATH_LABELED = EXT_PATH + "labeled_data_1587_" + year + month + day + ".xlsx
 for task_id in task_id_list_detail:
     t_id = str(task_id)
     sql_result_json_detail = "SELECT result_json FROM TB_PRJ_DATA WHERE prj_idx =" + t_id + " AND prog_state_cd='ALL_FINISHED'"
-    result_json_detail = getDatabaseData(sql_result_json_detail, "prd", "mhjeong", "cworks@34")
+    result_json_detail = getDatabaseData(sql_result_json_detail, "", "", "")
 
     for result_detail in result_json_detail:
         result_detail_dict = json.loads(result_detail[0])

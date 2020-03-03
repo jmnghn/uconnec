@@ -16,7 +16,7 @@ mkdirList = [ROOT_PATH + task_id, JSON_PATH, RESULT_IMAGE_PATH]
 
 sql = "SELECT D.data_idx, D.result_json, U.store_file_name FROM TB_PRJ_DATA D INNER JOIN TB_MEMBER M ON M.member_id = D.work_user INNER JOIN TB_TMPL_IMG_LABEL_DATA L ON D.data_idx  = L.data_idx INNER JOIN CW_SOURCE S ON S.source_id = L.src_idx INNER JOIN CW_FILE_UNPACKED U  ON U.file_id = S.file_id WHERE D.prj_idx in ( " + task_id + " ) AND D.prog_state_cd IN ('ALL_FINISHED');"
 
-rows = getDatabaseData(sql, "prd", "mhjeong", "cworks@34")
+rows = getDatabaseData(sql, "", "", "")
 
 # 1. 결과데이터 저장용 디렉토리 생성
 for path in mkdirList:

@@ -13,7 +13,7 @@ EXT_PATH = "/Users/myeonghyeonjeong/Desktop/DATA_EXT/카이스트/나무�
 task_id = "3211,3419"
 
 QUERY = "SELECT * FROM TB_PRJ_DATA WHERE prj_idx in (" + task_id + ") AND prog_state_cd = 'ALL_FINISHED' AND problem_yn=0"
-RESULT = getDatabaseData(QUERY, "prd", "mhjeong", "cworks@34")
+RESULT = getDatabaseData(QUERY, "", "", "")
 
 # 추출 데이터 형식 맞춰서 폴더생성 (labeled_data_프로젝트아이디_추출일자)
 import datetime

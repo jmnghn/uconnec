@@ -39,7 +39,7 @@ task_id_list = "2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045
 sql_result_json = "SELECT result_json FROM TB_PRJ_DATA WHERE prj_idx in (" + task_id_list + ") AND prog_state_cd='ALL_FINISHED'"
 print(sql_result_json)
 
-result_json = getDatabaseData(sql_result_json, "prd", "mhjeong", "cworks@34")
+result_json = getDatabaseData(sql_result_json, "", "", "")
 
 for result in result_json:
     # str > dict
@@ -153,7 +153,7 @@ task_id_list_detail = [2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043, 204
 for task_id in task_id_list_detail:
     t_id = str(task_id)
     sql_result_json_detail = "SELECT result_json FROM TB_PRJ_DATA WHERE prj_idx =" + t_id + " AND prog_state_cd='ALL_FINISHED'"
-    result_json_detail = getDatabaseData(sql_result_json_detail, "prd", "mhjeong", "cworks@34")
+    result_json_detail = getDatabaseData(sql_result_json_detail, "", "", "")
 
     for result_detail in result_json_detail:
         result_detail_dict = json.loads(result_detail[0])

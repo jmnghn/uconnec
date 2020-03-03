@@ -42,7 +42,7 @@ for dir in os.listdir(SOURCE_PATH):
 # QUERY_prj_data = "SELECT result_json FROM TB_PRJ_DATA WHERE prj_idx =" + str(
 #     TASK_ID) + " AND prog_state_cd = 'ALL_FINISHED'"
 QUERY_prj_data = "SELECT result_json FROM TB_PRJ_DATA WHERE prj_idx =" + str(TASK_ID) + " AND prog_state_cd = 'ALL_FINISHED' AND check_edate > '2019-10-07 10:57:34'"
-RESULT_prj_data = getDatabaseData(QUERY_prj_data, "prd", "mhjeong", "cworks@34")
+RESULT_prj_data = getDatabaseData(QUERY_prj_data, "", "", "")
 
 # 1. 파일아이디 목록 만들기
 for data in RESULT_prj_data:
@@ -53,7 +53,7 @@ for data in RESULT_prj_data:
 FILE_ID_LIST = ','.join(FILE_ID_LIST)
 
 QUERY_file_result = "SELECT store_file_name FROM CW_FILE_RESULT WHERE file_id in (" + FILE_ID_LIST + ")"
-RESULT_file_result = getDatabaseData(QUERY_file_result, "prd", "mhjeong", "cworks@34")
+RESULT_file_result = getDatabaseData(QUERY_file_result, "", "", "")
 
 print(QUERY_file_result)
 

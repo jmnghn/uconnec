@@ -33,7 +33,7 @@ for task_id in task_id_list:
     # [2382]
     sql_result_json = "select data_idx, work_user, result_json from TB_PRJ_DATA where prj_idx in (" + str(task_id) + ") and (prog_state_cd in ('WORK_END','CHECK_REWORK','ALL_FINISHED'))"
     # print("### sql_result_json ### \n", sql_result_json)
-    prj_data_list = getDatabaseData(sql_result_json, "prd", "mhjeong", "cworks@34")
+    prj_data_list = getDatabaseData(sql_result_json, "", "", "")
 
     for prj_data in prj_data_list:
         # json 파일 만들 때 사용할 format dict
@@ -60,7 +60,7 @@ for task_id in task_id_list:
         sql_file_name = "select U.store_file_name, uuid_str from  TB_PRJ_DATA     D left join TB_MEMBER M on M.member_id = D.work_user left join TB_TMPL_IMG_LABEL_DATA L on D.data_idx  = L.data_idx left join CW_SOURCE S on S.source_id = L.src_idx left join CW_FILE_UNPACKED U  on U.file_id = S.file_id where D.prj_idx in (" + str(
             task_id) + ") AND D.data_idx=" + str(data_idx)
         # print("### sql_file_name ### \n", sql_file_name)
-        file_name_result = getDatabaseData(sql_file_name, "prd", "mhjeong", "cworks@34")
+        file_name_result = getDatabaseData(sql_file_name, "", "", "")
         file_name = file_name_result[0][0]
 
         uuid_name = file_name_result[0][1]

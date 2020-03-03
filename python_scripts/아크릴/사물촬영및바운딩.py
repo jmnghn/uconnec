@@ -83,12 +83,12 @@ for task_id in task_id_list:
     QUERY_1 = "SELECT data_idx, work_user, result_json FROM TB_PRJ_DATA WHERE prj_idx=" + str(
         task_id) + " AND prog_state_cd='ALL_FINISHED'"
     # print("### QUERY_1 ### \n", QUERY_1)
-    QUERY_1_RESULT = getDatabaseData(QUERY_1, "prd", "mhjeong", "cworks@34")
+    QUERY_1_RESULT = getDatabaseData(QUERY_1, "", "", "")
 
     # QUERY 2
     QUERY_2 = "SELECT file_id, store_file_name FROM CW_FILE_RESULT WHERE task_id=" + str(task_id)
     # print("### QUERY_2 ### \n", QUERY_2)
-    QUERY_2_RESULT = getDatabaseData(QUERY_2, "prd", "mhjeong", "cworks@34")
+    QUERY_2_RESULT = getDatabaseData(QUERY_2, "", "", "")
 
     FILE_NAME_DICT = dict(QUERY_2_RESULT)
 

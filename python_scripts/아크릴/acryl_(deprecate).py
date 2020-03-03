@@ -52,7 +52,7 @@ for id in task_id_list:
         # TB_PRJ_DATA 테이블에서 해당 task 의 prog_state_cd 가 ALL_FINISHED 인 작업의 user_id 와 result_json 가져오기
         sql_result_json = "select work_user, result_json from TB_PRJ_DATA where prj_idx=" + str(
             task_id) + " and prog_state_cd='ALL_FINISHED'"
-        all_finished_prj_data_list = getDatabaseData(sql_result_json, "prd", "mhjeong", "cworks@34")
+        all_finished_prj_data_list = getDatabaseData(sql_result_json, "", "", "")
 
         task_file_counter = 0
 
@@ -61,7 +61,7 @@ for id in task_id_list:
             task_file_counter = task_file_counter + 1
 
             # sql_get_user_id = "select login_id from TB_MEMBER where member_id=" + str(all_finished_prj_data[0])
-            # user_id = getDatabaseData(sql_get_user_id, "prd", "mhjeong", "cworks@34")[0][0]
+            # user_id = getDatabaseData(sql_get_user_id, "", "", "")[0][0]
 
             # 결과 추출 복사할 파일 경로
             new_dir = "/Users/myeonghyeonjeong/Desktop/" + project_name + "/output/" + switch(task_id) + str(
@@ -81,7 +81,7 @@ for id in task_id_list:
 
             # dict 로 만들기...
             all_file_name_dict = dict((file_id, file_name) for file_id, file_name in
-                                      getDatabaseData(sql_get_file_name_list, "prd", "mhjeong", "cworks@34"))
+                                      getDatabaseData(sql_get_file_name_list, "", "", ""))
 
             if not str(json.loads(all_finished_prj_data[1])['fileId']) == "607717":
             #     if not str(json.loads(all_finished_prj_data[1])['fileId']) == "644815":

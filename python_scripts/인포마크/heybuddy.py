@@ -26,7 +26,7 @@ task_id = 1847
 sql_result_json = "select work_user, result_json from TB_PRJ_DATA where prj_idx=" + str(
     task_id) + " and prog_state_cd='ALL_FINISHED'"
 
-rows = getDatabaseData(sql_result_json, "prd", "mhjeong", "cworks@34")
+rows = getDatabaseData(sql_result_json, "", "", "")
 
 idx = 0
 
@@ -35,7 +35,7 @@ for row in rows:
     idx = idx + 1
 
     sql_get_user_id = "select login_id from TB_MEMBER where member_id=" + str(row[0])
-    user_id = getDatabaseData(sql_get_user_id, "prd", "mhjeong", "cworks@34")[0][0]
+    user_id = getDatabaseData(sql_get_user_id, "", "", "")[0][0]
 
     newDir = "/Users/myeonghyeonjeong/Desktop/output/" + switch(task_id) + user_id + '_' + str(idx)
 
@@ -50,7 +50,7 @@ for row in rows:
     sql_get_all_file_name = "SELECT file_id, store_file_name from CW_FILE_RESULT where task_id=" + str(
         task_id) + " and reg_user=" + str(row[0])
     all_file_name_dict = dict((file_id, file_name) for file_id, file_name in
-                              getDatabaseData(sql_get_all_file_name, "prd", "mhjeong", "cworks@34"))
+                              getDatabaseData(sql_get_all_file_name, "", "", ""))
 
     for i in range(0, 3):
         for j in range(0, 2):
