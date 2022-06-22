@@ -7,7 +7,7 @@ image==1.5.27
 isodate==0.6.0
 jdcal==1.4
 macholib==1.11
-numpy==1.16.4
+numpy==1.22.0
 openpyxl==2.6.2
 pandas==0.24.2
 pefile==2019.4.18
